@@ -3,29 +3,37 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Dark glassy gradient background */
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
   z-index: 1000;
   font-family: "Inter", sans-serif;
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border-radius: 5rem;
+  margin: 1rem auto 0 auto;
+  max-width: 900px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.2rem 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .header-nav {
   display: flex;
   justify-content: space-between;
+  color: #333;
   align-items: center;
   padding: 1.5rem 2rem;
 }
 
 .logo {
   font-size: 1.5rem;
-  font-weight: 400;
-  color: #333;
-  letter-spacing: 0.1em;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
 }
 
 .separator {
   margin: 0 0.3rem;
-  color: aquamarine;
   font-weight: 400;
 }
 
@@ -41,81 +49,126 @@ header {
   text-decoration: none;
   color: #333;
   font-weight: 500;
-  transition: color 0.3s ease;
+  position: relative;
 }
 
-.nav-links a:hover {
-  color: aquamarine;
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: #666666;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 body {
-  padding-top: 60px; /* Prevents content from hiding behind header */
   font-family: "Inter", sans-serif;
   margin: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .hero {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 94vh; /* Full viewport height */
-  background: #f5f5f5; /* Optional: background color */
+  height: 100vh;
   overflow: hidden;
   position: relative;
 }
 
 .home-content {
-  margin-top: -25rem;
+  padding-bottom: 23rem;
   z-index: 2;
+  position: relative;
 }
 
-.home-content p {
+.home-content .greeting {
   text-align: center;
-  color: #f5f5f5;
-  font-size: 4rem;
+  color: #333;
+  font-size: 7rem;
+  font-weight: 700;
   margin-bottom: -0.5rem;
 }
 
 .home-content .description {
-  text-align: justify;
-  color: #f7f7f7;
-  font-size: 1.5rem;
+  font-weight: 200;
+  text-align: center;
+  color: #333;
+  font-size: 1.6rem;
+}
+
+.scroll-arrow {
+  display: block;
+  margin: 5rem auto 0 auto;
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.2s linear;
+  animation: bounce 1.5s infinite;
+}
+
+.scroll-arrow:hover {
+  color: #c0c0c0;
+  transform: translateY(4px) scale(1.1);
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
 }
 
 section .wave {
-  position: absolute;
+  position: fixed;
   left: 0;
   width: 100%;
   height: 100%;
-  background: #f5f5f5;
-  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
-  transition: 0.5s;
+  background: #040404;;
+  z-index: 1;
+  transition: opacity 0.8s;
+  opacity: 1;
 }
 section .wave span {
   content: "";
   position: absolute;
-  width: 325vh;
-  height: 325vh;
+  width: 315vh;
+  height: 315vh;
   top: 0;
   left: 50%;
   transform: translate(-50%, -75%);
-  background: #000;
+  background: #333;
 }
 
 section .wave span:nth-child(1) {
   border-radius: 45%;
-  background: rgba(20, 20, 20, 1);
+  background: rgb(255, 255, 255);
   animation: animate 5s linear infinite;
 }
 
 section .wave span:nth-child(2) {
   border-radius: 40%;
-  background: rgba(20, 20, 20, 0.5);
+  background: rgba(255, 255, 255, 0.5);
   animation: animate 10s linear infinite;
 }
 section .wave span:nth-child(3) {
   border-radius: 42.5%;
-  background: rgba(20, 20, 20, 0.5);
+  background: rgba(255, 255, 255, 0.5);
   animation: animate 15s linear infinite;
 }
 @keyframes animate {
@@ -125,4 +178,35 @@ section .wave span:nth-child(3) {
   100% {
     transform: translate(-50%, -75%) rotate(360deg);
   }
+}
+
+.background {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  transition: opacity 0.8s;
+  pointer-events: none;
+}
+
+.home-bg {
+  background: #040404; /* or your home background */
+  opacity: 1;
+}
+
+.about-bg {
+  background: url('assets/polygon.svg') center center/cover no-repeat;
+  opacity: 0;
+}
+
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full viewport height */
+  color: #f5f5f5;
+  overflow: hidden;
+  position: relative;
+  font-family: "Inter", sans-serif;
 }
