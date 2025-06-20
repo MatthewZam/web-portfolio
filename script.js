@@ -34,4 +34,41 @@ window.addEventListener("scroll", function () {
   }
 });
 
+// Experience section interactivity
+document.addEventListener('DOMContentLoaded', () => {
+  const companyItems = document.querySelectorAll('.company-item');
+  const jobContents = document.querySelectorAll('.job-content');
+
+  // Function to update active company and show corresponding content
+  const setActiveCompany = (companyElement) => {
+    // Remove active class from all companies
+    companyItems.forEach(item => item.classList.remove('active'));
+    
+    // Add active class to clicked company
+    companyElement.classList.add('active');
+    
+    // Hide all job contents
+    jobContents.forEach(content => {
+      content.classList.remove('active');
+    });
+    
+    // Show selected company's content
+    const companyId = companyElement.dataset.company;
+    const selectedContent = document.getElementById(`${companyId}-content`);
+    if (selectedContent) {
+      selectedContent.classList.add('active');
+    }
+  };
+
+  // Add click event listeners to company items
+  companyItems.forEach(company => {
+    company.addEventListener('click', () => setActiveCompany(company));
+  });
+
+  // Set first company as active by default
+  if (companyItems.length > 0) {
+    setActiveCompany(companyItems[0]);
+  }
+});
+
 
