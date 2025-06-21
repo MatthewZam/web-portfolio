@@ -21,20 +21,20 @@ header {
 .header-nav {
   display: flex;
   justify-content: space-between;
-  color: #333;
   align-items: center;
   padding: 1.5rem 2rem;
 }
 
 .logo {
   font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: 0.1rem;
+  font-weight: 800;
+  letter-spacing: 0rem;
 }
 
 .separator {
   margin: 0 0.3rem;
-  font-weight: 400;
+  font-weight: 100;
+  color: #999;
 }
 
 .nav-links {
@@ -47,7 +47,7 @@ header {
 
 .nav-links a {
   text-decoration: none;
-  color: #333;
+  color: #111111;
   font-weight: 500;
   position: relative;
 }
@@ -60,7 +60,7 @@ header {
   height: 2px;
   bottom: -3px;
   left: 0;
-  background-color: #666666;
+  background-color: #999;
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
 }
@@ -94,7 +94,7 @@ body {
 
 .home-content .greeting {
   text-align: center;
-  color: #333;
+  color: #111111;
   font-size: 7rem;
   font-weight: 700;
   margin-bottom: -0.5rem;
@@ -103,7 +103,7 @@ body {
 .home-content .description {
   font-weight: 200;
   text-align: center;
-  color: #333;
+  color: #111111;
   font-size: 1.6rem;
 }
 
@@ -267,27 +267,30 @@ section .wave span:nth-child(3) {
 }
 
 .exp-content {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 2rem;
+  max-width: 1200px;
+  margin-left: 19.4rem;
 }
 
 .exp-content h1 {
-  font-size: 4.5rem;
-  font-weight: 600;
-  margin-bottom: 4rem;
-  color: #333;
+  font-size: 4rem;
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  color: #111111;
 }
 
 .experience-grid {
   display: flex;
   gap: 2rem;
+  align-items: flex-start;
+  margin-left: 0.2rem;
 }
 
 .companies-sidebar {
   min-width: 200px;
   border-left: 2px solid #e1e1e1;
-  padding-left: 1rem;
+  padding-left: 0.98rem;
+  height: fit-content;
 }
 
 .company-list {
@@ -300,12 +303,13 @@ section .wave span:nth-child(3) {
   padding: 1rem;
   cursor: pointer;
   position: relative;
-  font-size: 1.2rem;
-  color: #666;
+  font-size: 1.25rem;
+  color: #999999;
   transition: color 0.3s ease;
   user-select: none;
   display: block;
   width: 100%;
+  font-weight: 500;
 }
 
 .company-item::before {
@@ -320,11 +324,11 @@ section .wave span:nth-child(3) {
 }
 
 .company-item:hover {
-  color: #333;
+  color: #272727;
 }
 
 .company-item.active {
-  color: #000;
+  color: #040404;
 }
 
 .company-item.active::before {
@@ -332,29 +336,21 @@ section .wave span:nth-child(3) {
 }
 
 /* Company-specific colors */
-.company-item[data-company="apple"].active {
-  color: #000000;
+.company-item[data-company="bca"].active {
+  color: #111111;
 }
 
-.company-item[data-company="microsoft"].active {
-  color: #00a4ef;
+.company-item[data-company="musictalk"].active {
+  color: #111111;
 }
 
-.company-item[data-company="spotify"].active {
-  color: #1DB954;
-}
-
-.company-item[data-company="stripe"].active {
-  color: #635BFF;
-}
-
-.company-item[data-company="webflow"].active {
-  color: #4353FF;
+.company-item[data-company="ukmband"].active {
+  color: #111111;
 }
 
 .job-details {
-  flex: 1;
-  padding: 0 1rem;
+  flex: 1; 
+  position: relative;
 }
 
 .job-content {
@@ -362,16 +358,11 @@ section .wave span:nth-child(3) {
   opacity: 0;
   transform: translateX(20px);
   transition: opacity 0.3s ease, transform 0.3s ease;
+  position: relative;
+  width: 100%;
 }
 
 .job-content.active {
-  display: block;
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Update to ensure first content is visible by default */
-#apple-content {
   display: block;
   opacity: 1;
   transform: translateX(0);
@@ -384,16 +375,16 @@ section .wave span:nth-child(3) {
 .job-title {
   font-size: 1.8rem;
   font-weight: 600;
-  color: #333;
+  color: #111111;
   margin: 0;
 }
 
 .company-name {
-  color: inherit;
+  color: #666666;
 }
 
 .job-period {
-  color: #666;
+  color: #333;
   margin: 0.5rem 0;
 }
 
@@ -411,8 +402,15 @@ section .wave span:nth-child(3) {
 }
 
 .checkmark {
-  color: #666;
-  font-size: 1.2rem;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  background-image: url('assets/checkmark.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #999999;
+  margin-top: 0.15rem;
 }
 
 .responsibility-text {
@@ -420,3 +418,56 @@ section .wave span:nth-child(3) {
   line-height: 1.6;
 }
 
+.skills-content {
+  max-width: 1200px;
+  margin-left: 19.4rem;
+  font-family: "Inter", sans-serif;
+}
+
+.skills-content h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 1.6rem;
+  color: #111111;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 3rem;
+}
+
+.skill-item {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.skill-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.skill-icon {
+  height: 48px;
+  width: 48px;
+  margin: 0 auto 1rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.skill-name {
+  font-weight: 500;
+  color: #333;
+}

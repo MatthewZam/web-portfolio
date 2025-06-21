@@ -21,9 +21,9 @@ window.addEventListener("scroll", function () {
   } else {
     waveBg.style.opacity = 1;
     aboutBg.style.opacity = 0;
-    colorLogo.style.color = "#333";
+    colorLogo.style.color = "#111111";
     colorLinks.forEach((link) => {
-      link.style.color = "#333";
+      link.style.color = "#111111";
     });
     aboutBg.classList.remove("visible");
   }
@@ -66,8 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Set first company as active by default
-  if (companyItems.length > 0) {
-    setActiveCompany(companyItems[0]);
+  const firstCompany = companyItems[0];
+  if (firstCompany) {
+    setActiveCompany(firstCompany);
   }
 });
 
