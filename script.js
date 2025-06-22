@@ -2,14 +2,27 @@ document.getElementById("scrollToAbout").addEventListener("click", function () {
   document.getElementById("about-me").scrollIntoView({ behavior: "smooth" });
 });
 
+// Debug scroll position
+window.addEventListener('scroll', function() {
+  console.log('Scroll position:', window.scrollY);
+});
+
 window.addEventListener("scroll", function () {
   const scrollTrigger = 300; // Adjust as needed
+  const scrollTrigger2 = 400;
+  const scrollTrigger3 = 1300;
+  const scrollTrigger4 = 1400;
+
   const aboutBg = document.querySelector(".about-bg");
   const waveBg = document.querySelector(".wave");
+  const skillsExpBg = document.querySelector(".skills-exp-bg");
+
   const colorLogo = document.querySelector(".header-nav");
   const colorLinks = document.querySelectorAll(".nav-links a"); // Select all links
+  
   const aboutContent = document.querySelector(".about-content");
-  const scrollTrigger2 = 400;
+  const skillsExpContent = document.querySelector(".skills-exp-content");
+  
   if (window.scrollY > scrollTrigger) {
     waveBg.style.opacity = 0;
     aboutBg.style.opacity = 1;
@@ -31,6 +44,24 @@ window.addEventListener("scroll", function () {
     aboutContent.classList.add("visible");
   } else {
     aboutContent.classList.remove("visible");
+  }
+
+  if (window.scrollY > scrollTrigger3) {
+    skillsExpBg.classList.add("visible");
+    colorLogo.style.color = "#111111";
+    colorLinks.forEach((link) => {
+      link.style.color = "#111111";
+    });
+    aboutContent.classList.remove("visible");
+  } else {
+    skillsExpBg.classList.remove("visible");
+  }
+  if (window.scrollY > scrollTrigger4) {
+    skillsExpContent.classList.add("visible");
+    
+  } else {
+    skillsExpContent.classList.remove("visible");
+    
   }
 });
 
@@ -71,5 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setActiveCompany(firstCompany);
   }
 });
+
+
 
 

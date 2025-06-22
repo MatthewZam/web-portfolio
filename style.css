@@ -2,7 +2,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 38%;
   /* Dark glassy gradient background */
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
   z-index: 1000;
@@ -14,7 +14,6 @@ header {
   max-width: 900px;
   left: 50%;
   transform: translateX(-50%);
-  padding: 0.2rem 0;
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -23,18 +22,19 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 2rem;
+  color: #111111;
 }
 
 .logo {
   font-size: 1.5rem;
   font-weight: 800;
   letter-spacing: 0rem;
+  
 }
 
 .separator {
-  margin: 0 0.3rem;
+  margin: 0 0rem;
   font-weight: 100;
-  color: #999;
 }
 
 .nav-links {
@@ -60,7 +60,7 @@ header {
   height: 2px;
   bottom: -3px;
   left: 0;
-  background-color: #999;
+  background-color: currentColor;
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
 }
@@ -201,26 +201,21 @@ section .wave span:nth-child(3) {
 .about-bg {
   background: url("assets/polygon.svg") center center/cover no-repeat;
   opacity: 0;
-  transform: scale(0.96);
+  transform: scale(1);
   transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
     transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .about-bg.visible {
   opacity: 1;
-  transform: scale(1);
-}
-
-.skills-exp-bg {
-  background: #f5f5f5; /* or your home background */
-  opacity: 0;
+  transform: scale(1.04);
 }
 
 .about {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 135vh; /* Full viewport height */
+  height: 130vh; /* Full viewport height */
   color: #f5f5f5;
   overflow: hidden;
   position: relative;
@@ -260,15 +255,33 @@ section .wave span:nth-child(3) {
   color: #f5f5f5;
 }
 
-.skills-exp {
-  min-height: 100vh;
-  padding: 6rem 0;
-  background: #ffffff;
+.skills-exp-bg {
+  background: #ffffff; /* or your home background */
+  opacity: 0;
 }
 
-.exp-content {
+.skills-exp-bg.visible {
+  opacity: 1;
+}
+
+.skills-exp {
+  min-height: 100vh;
+}
+
+.skills-exp-content {
   max-width: 1200px;
   margin-left: 19.4rem;
+  font-family: "Inter", sans-serif;
+  margin-bottom: 32rem;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skills-exp-content.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .exp-content h1 {
@@ -313,7 +326,7 @@ section .wave span:nth-child(3) {
 }
 
 .company-item::before {
-  content: '';
+  content: "";
   position: absolute;
   left: -1.1rem;
   top: 0;
@@ -349,7 +362,7 @@ section .wave span:nth-child(3) {
 }
 
 .job-details {
-  flex: 1; 
+  flex: 1;
   position: relative;
 }
 
@@ -405,7 +418,7 @@ section .wave span:nth-child(3) {
   width: 20px;
   height: 20px;
   min-width: 20px;
-  background-image: url('assets/checkmark.svg');
+  background-image: url("assets/checkmark.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -416,12 +429,6 @@ section .wave span:nth-child(3) {
 .responsibility-text {
   color: #333;
   line-height: 1.6;
-}
-
-.skills-content {
-  max-width: 1200px;
-  margin-left: 19.4rem;
-  font-family: "Inter", sans-serif;
 }
 
 .skills-content h1 {
