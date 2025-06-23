@@ -1,5 +1,8 @@
 document.getElementById("scrollToAbout").addEventListener("click", function () {
-  document.getElementById("about-me").scrollIntoView({ behavior: "smooth" });
+  window.scrollTo({
+    top: 800,
+    behavior: "smooth"
+  });
 });
 
 // Debug scroll position
@@ -101,6 +104,50 @@ document.addEventListener('DOMContentLoaded', () => {
   if (firstCompany) {
     setActiveCompany(firstCompany);
   }
+
+  // Add navigation link handlers
+  const navLinks = document.querySelectorAll('.nav-links a');
+  
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const href = link.getAttribute('href');
+      
+      // Set specific scroll positions for each section
+      switch(href) {
+        case '#home-section':
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+          break;
+        case '#about-section':
+          window.scrollTo({
+            top: 800,
+            behavior: 'smooth'
+          });
+          break;
+        case '#skills-exp-section':
+          window.scrollTo({
+            top: 2000,
+            behavior: 'smooth'
+          });
+          break;
+        case '#projects':
+          window.scrollTo({
+            top: 2600,
+            behavior: 'smooth'
+          });
+          break;
+        case '#contact':
+          window.scrollTo({
+            top: 3000,
+            behavior: 'smooth'
+          });
+          break;
+      }
+    });
+  });
 });
 
 

@@ -269,6 +269,7 @@ section .wave span:nth-child(3) {
 }
 
 .skills-exp-content {
+  margin-top: 1rem;
   max-width: 1200px;
   margin-left: 19.4rem;
   font-family: "Inter", sans-serif;
@@ -288,7 +289,7 @@ section .wave span:nth-child(3) {
   font-size: 4rem;
   font-weight: 800;
   margin-top: 0;
-  margin-bottom: 2rem;
+  margin-bottom: 1.4rem;
   color: #111111;
 }
 
@@ -363,22 +364,26 @@ section .wave span:nth-child(3) {
 
 .job-details {
   flex: 1;
-  position: relative;
 }
 
 .job-content {
   display: none;
-  opacity: 0;
-  transform: translateX(20px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  position: relative;
-  width: 100%;
 }
 
 .job-content.active {
   display: block;
-  opacity: 1;
-  transform: translateX(0);
+  animation: fadeInRight 0.8s ease forwards;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .job-header {
@@ -431,22 +436,27 @@ section .wave span:nth-child(3) {
   line-height: 1.6;
 }
 
+.skills-content {
+  max-width: 1000px;
+}
+
 .skills-content h1 {
   font-size: 4rem;
   font-weight: 800;
-  margin-bottom: 1.6rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
   color: #111111;
 }
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 2rem;
 }
 
 .skill-item {
   background: white;
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 1rem;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
@@ -460,9 +470,9 @@ section .wave span:nth-child(3) {
 }
 
 .skill-icon {
-  height: 48px;
-  width: 48px;
-  margin: 0 auto 1rem auto;
+  height: 40px;
+  width: 40px;
+  margin: 0 auto 0.8rem auto;
   display: flex;
   align-items: center;
   justify-content: center;
