@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Name - Matthew Sam</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .project-detail {
+            max-width: 1200px;
+            margin: 8rem auto;
+            padding: 0 2rem;
+        }
+
+        .project-detail-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .project-detail-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #111111;
+            margin-bottom: 1rem;
+        }
+
+        .project-detail-subtitle {
+            font-size: 1.5rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .project-detail-image {
+            width: 100%;
+            height: 500px;
+            border-radius: 1rem;
+            overflow: hidden;
+            margin-bottom: 4rem;
+        }
+
+        .project-detail-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-detail-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .project-detail-section {
+            margin-bottom: 3rem;
+        }
+
+        .project-detail-section h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #111111;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-detail-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 1rem;
+        }
+
+        .project-detail-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .project-detail-section li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .project-detail-section li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #111111;
+        }
+
+        .back-to-projects {
+            display: inline-block;
+            margin-top: 4rem;
+            padding: 1rem 2rem;
+            background: #111111;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .back-to-projects:hover {
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="header-nav">
+            <div class="logo">
+                <span class="first-name">M</span>
+                <span class="separator">|</span>
+                <span class="last-name">S</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html#home-section">Home</a></li>
+                <li><a href="../index.html#about-section">About</a></li>
+                <li><a href="../index.html#skills-exp-section">Experience</a></li>
+                <li><a href="../index.html#projects">Projects</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="project-detail">
+        <div class="project-detail-header">
+            <h1 class="project-detail-title">Project Name</h1>
+            <p class="project-detail-subtitle">A comprehensive description of what this project is about and its main goals.</p>
+        </div>
+
+        <div class="project-detail-image">
+            <img src="../images/project1.jpg" alt="Project Name">
+        </div>
+
+        <div class="project-detail-content">
+            <div class="project-detail-section">
+                <h2>Overview</h2>
+                <p>Detailed description of the project, including its purpose, target audience, and the problem it solves.</p>
+            </div>
+
+            <div class="project-detail-section">
+                <h2>Technologies Used</h2>
+                <ul>
+                    <li>Technology 1</li>
+                    <li>Technology 2</li>
+                    <li>Technology 3</li>
+                </ul>
+            </div>
+
+            <div class="project-detail-section">
+                <h2>Key Features</h2>
+                <ul>
+                    <li>Feature 1 description</li>
+                    <li>Feature 2 description</li>
+                    <li>Feature 3 description</li>
+                </ul>
+            </div>
+
+            <div class="project-detail-section">
+                <h2>Challenges & Solutions</h2>
+                <p>Discussion of the main challenges faced during the project and how they were overcome.</p>
+            </div>
+
+            <a href="../index.html#projects" class="back-to-projects">← Back to Projects</a>
+        </div>
+    </main>
+</body>
+</html> 

@@ -133,13 +133,13 @@ document.addEventListener('DOMContentLoaded', () => {
             behavior: 'smooth'
           });
           break;
-        case '#projects':
+        case '#project-section':
           window.scrollTo({
             top: 2600,
             behavior: 'smooth'
           });
           break;
-        case '#contact':
+        case '#contact-section':
           window.scrollTo({
             top: 3000,
             behavior: 'smooth'
