@@ -4,17 +4,16 @@ header {
   left: 0;
   width: 38%;
   /* Dark glassy gradient background */
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
   z-index: 1000;
   font-family: "Inter", sans-serif;
-  backdrop-filter: blur(18px) saturate(160%);
+  backdrop-filter: blur(15px) saturate(160%);
   -webkit-backdrop-filter: blur(18px) saturate(160%);
   border-radius: 1.8rem;
   margin: 1rem auto 0 auto;
   max-width: 900px;
   left: 50%;
   transform: translateX(-50%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .header-nav {
@@ -256,7 +255,7 @@ section .wave span:nth-child(3) {
 }
 
 .skills-exp-bg {
-  background: #fafafa; /* or your home background */
+  background: url("assets/waves.svg") center center/cover no-repeat;
   opacity: 0;
 }
 
@@ -265,7 +264,7 @@ section .wave span:nth-child(3) {
 }
 
 .skills-exp {
-  min-height: 100vh;
+  height: 100vh;
 }
 
 .skills-exp-content {
@@ -302,7 +301,7 @@ section .wave span:nth-child(3) {
 
 .companies-sidebar {
   min-width: 200px;
-  border-left: 2px solid #e1e1e1;
+  border-left: 2px solid #ffffff;
   padding-left: 0.98rem;
   height: fit-content;
 }
@@ -455,7 +454,7 @@ section .wave span:nth-child(3) {
 }
 
 .skill-item {
-  background: white;
+  background: #ffffff;
   padding: 1.5rem;
   border-radius: 1rem;
   text-align: center;
@@ -490,27 +489,39 @@ section .wave span:nth-child(3) {
 }
 
 .projects-bg {
-  background: none;
+  background: #ffffff;
+  opacity: 0;
+}
+
+.projects-bg.visible {
   opacity: 1;
 }
 
 .projects {
-  min-height: 100vh;
+  height: 250vh;
   overflow: hidden;
   font-family: "Inter", sans-serif;
-  background: #ffffff;
 }
 
 .projects-content {
   max-width: 1200px;
   margin-left: 19.4rem;
   margin-top: 1rem;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.projects-content.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .projects-content h1 {
   font-size: 4rem;
   font-weight: 800;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   color: #111111;
 }
 
@@ -545,7 +556,7 @@ section .wave span:nth-child(3) {
   position: relative;
   aspect-ratio: 16 / 9;  /* This maintains a consistent width-to-height ratio */
   overflow: hidden;
-  border-radius: 1.8rem;
+  border-radius: 1rem;
 }
 
 .project-image img {
@@ -586,7 +597,7 @@ section .wave span:nth-child(3) {
 }
 
 .tech-tag {
-  background: rgb(34, 33, 37);
+  background: rgb(0, 0, 0, 0.5);
   color: white;
   padding: 0.35rem 0.8rem;
   border-radius: 0.3rem;

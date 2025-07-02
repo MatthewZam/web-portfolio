@@ -11,24 +11,30 @@ window.addEventListener('scroll', function() {
 });
 
 window.addEventListener("scroll", function () {
-  const scrollTrigger = 300; // Adjust as needed
-  const scrollTrigger2 = 400;
-  const scrollTrigger3 = 1300;
-  const scrollTrigger4 = 1400;
+  const scrollToAbout = 300; // Adjust as needed
+  const scrollToAbout2 = 400;
+  const scrollToExp = 1300;
+  const scrollToExp2 = 1400;
+  const scrollToProjects = 2300;
+  const scrollToProjects2 = 2400;
 
   const aboutBg = document.querySelector(".about-bg");
   const waveBg = document.querySelector(".wave");
   const skillsExpBg = document.querySelector(".skills-exp-bg");
+  const projectsBg = document.querySelector(".projects-bg");
 
+  const colorBoxShadow = document.querySelector("header");
   const colorLogo = document.querySelector(".header-nav");
   const colorLinks = document.querySelectorAll(".nav-links a"); // Select all links
   
   const aboutContent = document.querySelector(".about-content");
   const skillsExpContent = document.querySelector(".skills-exp-content");
+  const projectsContent = document.querySelector(".projects-content");
   
-  if (window.scrollY > scrollTrigger) {
+  if (window.scrollY > scrollToAbout) {
     waveBg.style.opacity = 0;
     aboutBg.style.opacity = 1;
+    colorBoxShadow.style.boxShadow = "0 2px 12px rgba(255, 255, 255, 0.5)";
     colorLogo.style.color = "#f5f5f5";
     colorLinks.forEach((link) => {
       link.style.color = "#f5f5f5";
@@ -37,20 +43,22 @@ window.addEventListener("scroll", function () {
   } else {
     waveBg.style.opacity = 1;
     aboutBg.style.opacity = 0;
+    colorBoxShadow.style.boxShadow = "0 2px 12px rgba(0, 0, 0, 0.5)";
     colorLogo.style.color = "#111111";
     colorLinks.forEach((link) => {
       link.style.color = "#111111";
     });
     aboutBg.classList.remove("visible");
   }
-  if (window.scrollY > scrollTrigger2) {
+  if (window.scrollY > scrollToAbout2) {
     aboutContent.classList.add("visible");
   } else {
     aboutContent.classList.remove("visible");
   }
 
-  if (window.scrollY > scrollTrigger3) {
+  if (window.scrollY > scrollToExp) {
     skillsExpBg.classList.add("visible");
+    colorBoxShadow.style.boxShadow = "0 2px 12px rgba(0, 0, 0, 0.5)";
     colorLogo.style.color = "#111111";
     colorLinks.forEach((link) => {
       link.style.color = "#111111";
@@ -59,12 +67,25 @@ window.addEventListener("scroll", function () {
   } else {
     skillsExpBg.classList.remove("visible");
   }
-  if (window.scrollY > scrollTrigger4) {
+  if (window.scrollY > scrollToExp2) {
     skillsExpContent.classList.add("visible");
     
   } else {
     skillsExpContent.classList.remove("visible");
     
+  }
+
+  if (window.scrollY > scrollToProjects) {
+    projectsBg.classList.add("visible");
+    skillsExpContent.classList.remove("visible");
+  } else {
+    projectsBg.classList.remove("visible");
+    projectsContent.classList.remove("visible");
+  }
+  if (window.scrollY > scrollToProjects2) {
+    projectsContent.classList.add("visible");
+  } else {
+    projectsContent.classList.remove("visible");
   }
 });
 
@@ -133,15 +154,15 @@ document.addEventListener('DOMContentLoaded', () => {
             behavior: 'smooth'
           });
           break;
-        case '#project-section':
+        case '#projects-section':
           window.scrollTo({
-            top: 2600,
+            top: 3020,
             behavior: 'smooth'
           });
           break;
         case '#contact-section':
           window.scrollTo({
-            top: 3000,
+            top: 5000,
             behavior: 'smooth'
           });
           break;
