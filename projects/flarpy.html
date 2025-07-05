@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-commerce Platform - Matthew Sam</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+      body {
+        background-color: #040404;
+      }
+
+      header {
+        color: #f5f5f5;
+        background-color: #131313;
+        border: 1px solid #272727;
+      }
+
+      .header-nav {
+        color: #f5f5f5;
+      }
+
+      .nav-links a {
+        color: #f5f5f5;
+      }
+
+      .project-container {
+        display: flex;
+        min-height: 100vh;
+        background: #040404;
+        padding: 2rem;
+      }
+
+      .project-content-wrapper {
+        display: flex;
+        max-width: 1500px;
+        margin: 8rem auto;
+        gap: 3rem;
+        align-items: flex-start;
+      }
+
+      .showcase-glow-bg {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .showcase-glow-bg::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 150%;
+        height: 150%;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(
+          circle,
+          #f9c3e8 0%,
+          rgba(255, 255, 255, 0.1) 60%,
+          rgba(19, 19, 19, 0) 100%
+        );
+        z-index: 0;
+        pointer-events: none;
+        filter: blur(40px);
+      }
+
+      .showcase-wrapper {
+        flex: 1;
+        background: #131313;
+        border: 1px solid #272727;
+        padding-top: 2rem;
+        padding-left: 3rem;
+        padding-right: 3rem;
+        padding-bottom: 5rem;
+        border-radius: 1.2rem;
+        position: relative;
+        min-width: 800px;
+        z-index: 1;
+        overflow: visible;
+      }
+
+      .project-showcase {
+        position: relative;
+        width: 100%;
+        background: #131313;
+        border-radius: 1rem;
+        overflow: hidden;
+        aspect-ratio: 16/9;
+        z-index: 1;
+      }
+
+      .carousel {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .carousel-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .carousel-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .carousel-slide.active {
+        opacity: 1;
+        z-index: 2;
+        pointer-events: auto;
+      }
+
+      .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 0.5rem;
+      }
+
+      .carousel-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 20px;
+        z-index: 2;
+        gap: 1.5rem;
+      }
+      .carousel-indicators {
+        display: flex;
+        gap: 0.5rem;
+        position: static;
+      }
+      .carousel-arrow {
+        margin: 0;
+        position: static;
+        width: 40px;
+        height: 40px;
+        background: #040404;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s ease;
+        z-index: 2;
+        border: 1.5px solid #272727;
+      }
+      .carousel-arrow img {
+        width: 18px;
+        height: 18px;
+        padding-left: 2px;
+        object-fit: contain;
+        pointer-events: none;
+      }
+      .carousel-arrow.prev img {
+        transform: rotate(180deg);
+      }
+      .carousel-arrow:hover {
+        background: #272727;
+      }
+
+      .indicator {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #44444a;
+        opacity: 0.7;
+        transition: background 0.3s, opacity 0.3s;
+        cursor: pointer;
+      }
+
+      .indicator.active {
+        background: #ffffff;
+        opacity: 1;
+      }
+
+      .project-desc {
+        flex: 0 0 400px;
+      }
+
+      .project-title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-top: 1.5rem;
+        margin-bottom: 0.6rem;
+        color: white;
+      }
+
+      .project-subtitle {
+        margin-top: 0;
+        font-size: 1rem;
+        color: #999;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
+
+      .section-title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 0.6rem;
+        color: white;
+        margin-top: 1.5rem;
+      }
+
+      .section-text {
+        margin-top: 0;
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #999;
+        margin-bottom: 1rem;
+      }
+
+      .tech-grid {
+        padding: 0;
+      }
+
+      .tech-lists {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-top: 0.6rem;
+        background-color: transparent;
+      }
+
+      .tech-tags {
+        background: #272727;
+        color: #f5f5f5;
+        padding: 0.35rem 0.7rem;
+        border-radius: 2rem;
+        font-size: 0.8rem;
+        font-weight: 200;
+        transition: background 0.3s ease;
+      }
+
+      .tech-tags:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .visit-project {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 2rem;
+        padding: 0.8rem 1.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        text-decoration: none;
+        border-radius: 0.5rem;
+        font-weight: 500;
+        transition: background 0.3s ease;
+      }
+
+      .visit-project span {
+        font-size: 0.9rem;
+      }
+
+      .visit-project:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      hr {
+        border: none;
+        border-top: 1px solid #333;
+        margin: 0;
+        opacity: 0.5;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="header-nav">
+        <div class="logo">
+          <span class="first-name">M</span>
+          <span class="separator">|</span>
+          <span class="last-name">S</span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="../index.html#home-section">Home</a></li>
+          <li><a href="../index.html#about-section">About</a></li>
+          <li><a href="../index.html#skills-exp-section">Experience</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="project-container">
+      <div class="project-content-wrapper">
+        <div class="showcase-glow-bg">
+          <div class="showcase-wrapper">
+            <div class="project-showcase">
+              <div class="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-slide">
+                    <img
+                      src="../images/projects/flarpy/thumbnail.png"
+                      alt="Thumbnail"
+                    />
+                  </div>
+                  <div class="carousel-slide">
+                    <img
+                      src="../images/projects/flarpy/gameplay.png"
+                      alt="Dashboard"
+                    />
+                  </div>
+                  <div class="carousel-slide">
+                    <img
+                      src="../images/projects/flarpy/gameover.png"
+                      alt="Devices"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-controls">
+              <button class="carousel-arrow prev">
+                <img src="../assets/arrow.png" alt="Previous" />
+              </button>
+              <div class="carousel-indicators">
+                <div class="indicator active"></div>
+                <div class="indicator"></div>
+                <div class="indicator"></div>
+              </div>
+              <button class="carousel-arrow next">
+                <img src="../assets/arrow.png" alt="Next" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-desc">
+          <h1 class="project-title">Flarpy Blorb</h1>
+          <p class="project-subtitle">
+            A space-bar controlled obstacle dodging game.
+          </p>
+          <hr />
+          <div class="content-section">
+            <h2 class="section-title">What Is It?</h2>
+            <p class="section-text">
+              Flarpy Blorb is a casual obstacle-dodging game where players tap
+              to keep the character flying and avoid obstacles.
+            </p>
+          </div>
+          <hr />
+          <div class="tech-grid">
+            <h2 class="section-title">Tools & Technologies</h2>
+            <div class="tech-lists">
+              <span class="tech-tags">C#</span>
+              <span class="tech-tags">Unity</span>
+              <span class="tech-tags">Game Design</span>
+            </div>
+          </div>
+
+          <a href="../index.html#projects-section" class="visit-project">
+            <span>Visit Project</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+              ></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const carousel = document.querySelector(".carousel-inner");
+        const slides = document.querySelectorAll(".carousel-slide");
+        const prevButton = document.querySelector(".carousel-arrow.prev");
+        const nextButton = document.querySelector(".carousel-arrow.next");
+        const indicators = document.querySelectorAll(".indicator");
+
+        let currentSlide = 0;
+        const slideCount = slides.length;
+
+        function updateCarousel() {
+          slides.forEach((slide, index) => {
+            slide.classList.toggle("active", index === currentSlide);
+          });
+          // Update indicators
+          indicators.forEach((indicator, index) => {
+            indicator.classList.toggle("active", index === currentSlide);
+          });
+        }
+
+        function nextSlide() {
+          currentSlide = (currentSlide + 1) % slideCount;
+          updateCarousel();
+        }
+
+        function prevSlide() {
+          currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+          updateCarousel();
+        }
+
+        // Event listeners for buttons
+        nextButton.addEventListener("click", nextSlide);
+        prevButton.addEventListener("click", prevSlide);
+
+        // Event listeners for indicators
+        indicators.forEach((indicator, index) => {
+          indicator.addEventListener("click", function () {
+            currentSlide = index;
+            updateCarousel();
+          });
+        });
+
+        // Initialize
+        updateCarousel();
+      });
+    </script>
+  </body>
+</html>

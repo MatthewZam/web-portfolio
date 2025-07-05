@@ -60,8 +60,8 @@
             transform: translate(-50%, -50%);
             background: radial-gradient(
                 circle,
-                rgba(255,214,0,0.35) 0%,
-                rgba(255,214,0,0.10) 60%,
+                rgba(255, 255, 255, 0.35) 0%,
+                rgba(255, 255, 255, 0.1) 60%,
                 rgba(19,19,19,0) 100%
             );
             z-index: 0;
@@ -129,11 +129,25 @@
             border-radius: 0.5rem;
         }
 
-        .carousel-arrow {
-            margin-bottom: 10px;
-            margin-left: 300px;
-            margin-right: 300px;
+        .carousel-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 20px;
+            z-index: 2;
+            gap: 1.5rem;
+        }
+        .carousel-indicators {
+            display: flex;
+            gap: 0.5rem;
+            position: static;
+        }
+        .carousel-arrow {
+            margin: 0;
+            position: static;
             width: 40px;
             height: 40px;
             background: #040404;
@@ -146,7 +160,6 @@
             z-index: 2;
             border: 1.5px solid #272727;
         }
-        
         .carousel-arrow img {
             width: 18px;
             height: 18px;
@@ -154,35 +167,11 @@
             object-fit: contain;
             pointer-events: none;
         }
-        
         .carousel-arrow.prev img {
             transform: rotate(180deg);
         }
-
         .carousel-arrow:hover {
             background: #272727;
-        }
-
-        .carousel-arrow.prev {
-            bottom: 10px;
-            left: 70px;
-        }
-
-        .carousel-arrow.next {
-            bottom: 10px;
-            right: 70px;
-        }
-
-        .carousel-indicators {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.5rem;
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 35px;
-            z-index: 1;
         }
 
         .indicator {
@@ -319,52 +308,62 @@
                         <div class="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-slide">
-                                    <img src="../images/projects/ecommerce/thumbnail.png" alt="Thumbnail">
+                                    <img src="../images/projects/dms/thumbnail.png" alt="Thumbnail">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../images/projects/ecommerce/dashboard.png" alt="E-commerce Dashboard">
+                                    <img src="../images/projects/dms/dashboard.png" alt="Dashboard">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../images/projects/ecommerce/product.png" alt="Product Page">
+                                    <img src="../images/projects/dms/payroll.png" alt="Payroll">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../images/projects/ecommerce/footer.png" alt="Footer Section">
+                                    <img src="../images/projects/dms/progress.png" alt="Progress">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="../images/projects/dms/processed.png" alt="Processed">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="../images/projects/dms/confirmation.png" alt="Confirmation">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="../images/projects/dms/success.png" alt="Success">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-indicators">
-                        <div class="indicator active"></div>
-                        <div class="indicator"></div>
-                        <div class="indicator"></div>
-                        <div class="indicator"></div>
+                    <div class="carousel-controls">
+                        <button class="carousel-arrow prev"><img src="../assets/arrow.png" alt="Previous"></button>
+                        <div class="carousel-indicators">
+                            <div class="indicator active"></div>
+                            <div class="indicator"></div>
+                            <div class="indicator"></div>
+                            <div class="indicator"></div>
+                            <div class="indicator"></div>
+                            <div class="indicator"></div>
+                            <div class="indicator"></div>
+                        </div>
+                        <button class="carousel-arrow next"><img src="../assets/arrow.png" alt="Next"></button>
                     </div>
-                    <button class="carousel-arrow prev"><img src="../assets/arrow.png" alt="Previous"></button>
-                    <button class="carousel-arrow next"><img src="../assets/arrow.png" alt="Next"></button>
                 </div>
             </div>
 
             <div class="project-desc">
                 <h1 class="project-title">React E-commerce</h1>
-                <p class="project-subtitle">A modern platform for seamless online shopping experience.</p>
+                <p class="project-subtitle">A streamlined solution for managing payment workflows.</p>
                 <hr>
                 <div class="content-section">
                     <h2 class="section-title">What Is It?</h2>
                     <p class="section-text">
-                        This homepage introduces a seamless online shopping platform with a clean, 
-                        user-friendly design. Discover featured products and enjoy effortless 
-                        navigation.
+                        This project features a modern payroll management app designed in Figma. The intuitive interface streamlines salary processing, employee tracking, and payment approvals, making payroll tasks faster and more efficient for businesses.
                     </p>
                 </div>
                 <hr>
                 <div class="tech-grid">
                     <h2 class="section-title">Tools & Technologies</h2>
                     <div class="tech-lists">
-                        <span class="tech-tags">Java</span>
-                        <span class="tech-tags">C++</span>
-                        <span class="tech-tags">Android Studio</span>
-                        <span class="tech-tags">Arduino IDE</span>
                         <span class="tech-tags">Figma</span>
+                        <span class="tech-tags">UI/UX Design</span>
+                        <span class="tech-tags">App Design</span>
                     </div>
                 </div>
 

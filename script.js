@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
           break;
         case '#projects-section':
           window.scrollTo({
-            top: 3020,
+            top: 2980,
             behavior: 'smooth'
           });
           break;

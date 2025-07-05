@@ -200,14 +200,14 @@ section .wave span:nth-child(3) {
 .about-bg {
   background: url("assets/polygon.svg") center center/cover no-repeat;
   opacity: 0;
-  transform: scale(1);
+  transform: scale(1.04);
   transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
     transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .about-bg.visible {
   opacity: 1;
-  transform: scale(1.04);
+  transform: scale(1);
 }
 
 .about {
@@ -255,7 +255,7 @@ section .wave span:nth-child(3) {
 }
 
 .skills-exp-bg {
-  background: url("assets/waves.svg") center center/cover no-repeat;
+  background: url("assets/waves2.svg") center center/cover no-repeat;
   opacity: 0;
 }
 
@@ -301,7 +301,7 @@ section .wave span:nth-child(3) {
 
 .companies-sidebar {
   min-width: 200px;
-  border-left: 2px solid #ffffff;
+  border-left: 2px solid #d4d4d4;
   padding-left: 0.98rem;
   height: fit-content;
 }
@@ -511,6 +511,14 @@ section .wave span:nth-child(3) {
   transform: translateY(40px);
   transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
     transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+hr {
+  border: none;
+  width: 110%;
+  border-top: 1px solid #111111;
+  margin: 1rem 0.1rem 0 0.1rem;
+  opacity: 0.3;
 }
 
 .projects-content.visible {
