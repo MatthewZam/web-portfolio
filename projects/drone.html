@@ -132,6 +132,7 @@
         height: 100%;
         object-fit: contain;
         border-radius: 0.5rem;
+        cursor: pointer;
       }
 
       .carousel-controls {
@@ -284,6 +285,78 @@
         margin: 0;
         opacity: 0.5;
       }
+      /* Lightbox styles */
+      #lightbox-modal {
+        position: fixed;
+        z-index: 9999;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+      }
+      #lightbox-modal.active {
+        display: flex;
+      }
+      .lightbox-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0,0,0,0.85);
+        z-index: 1;
+      }
+      #lightbox-img {
+        max-width: 90vw;
+        max-height: 80vh;
+        border-radius: 1rem;
+        z-index: 2;
+        box-shadow: 0 0 40px #000a;
+      }
+      .lightbox-close {
+        position: absolute;
+        top: 2rem;
+        right: 3rem;
+        z-index: 3;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 2.5rem;
+        cursor: pointer;
+        line-height: 1;
+        padding: 0;
+      }
+      .lightbox-nav {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        width: 40px;
+        height: 40px;
+        background: #040404;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s ease;
+        z-index: 3;
+        border: 1.5px solid #272727;
+        box-shadow: none;
+        color: #fff;
+        font-size: 1.5rem;
+        padding: 0;
+        outline: none;
+        transform: translateY(-50%);
+      }
+      .lightbox-nav.lightbox-prev { left: 2rem; }
+      .lightbox-nav.lightbox-next { right: 2rem; }
+      .lightbox-nav:hover {
+        background: #272727;
+        transform: translateY(-50%) scale(1.08);
+      }
+      .lightbox-nav svg {
+        width: 18px;
+        height: 18px;
+        object-fit: contain;
+        pointer-events: none;
+      }
     </style>
   </head>
   <body>
@@ -298,7 +371,7 @@
           <li><a href="../index.html#home-section">Home</a></li>
           <li><a href="../index.html#about-section">About</a></li>
           <li><a href="../index.html#skills-exp-section">Experience</a></li>
-          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../index.html#projects-section">Projects</a></li>
           <li><a href="../index.html#contact">Contact</a></li>
         </ul>
       </nav>
@@ -396,6 +469,19 @@
       </div>
     </main>
 
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal">
+      <div class="lightbox-overlay"></div>
+      <button class="lightbox-nav lightbox-prev" aria-label="Previous">
+        <img src="../assets/arrow.png" alt="Previous" style="width:18px;height:18px;transform:rotate(180deg);pointer-events:none;" />
+      </button>
+      <img id="lightbox-img" src="" alt="Large view" />
+      <button class="lightbox-nav lightbox-next" aria-label="Next">
+        <img src="../assets/arrow.png" alt="Next" style="width:18px;height:18px;pointer-events:none;" />
+      </button>
+      <button class="lightbox-close" aria-label="Close">&times;</button>
+    </div>
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const carousel = document.querySelector(".carousel-inner");
@@ -441,6 +527,57 @@
 
         // Initialize
         updateCarousel();
+
+        // Lightbox functionality
+        const lightboxModal = document.getElementById("lightbox-modal");
+        const lightboxImg = document.getElementById("lightbox-img");
+        const lightboxClose = document.querySelector(".lightbox-close");
+        const lightboxOverlay = document.querySelector(".lightbox-overlay");
+        const lightboxPrev = document.querySelector(".lightbox-prev");
+        const lightboxNext = document.querySelector(".lightbox-next");
+        const carouselImages = Array.from(document.querySelectorAll(".carousel-slide img"));
+        let lightboxIndex = 0;
+
+        // Make carousel images clickable
+        carouselImages.forEach((img, idx) => {
+          img.addEventListener("click", function () {
+            lightboxIndex = idx;
+            showLightboxImage();
+            lightboxModal.classList.add("active");
+          });
+        });
+
+        function showLightboxImage() {
+          lightboxImg.src = carouselImages[lightboxIndex].src;
+        }
+
+        // Navigation in lightbox
+        function showPrevLightbox() {
+          lightboxIndex = (lightboxIndex - 1 + carouselImages.length) % carouselImages.length;
+          showLightboxImage();
+        }
+        function showNextLightbox() {
+          lightboxIndex = (lightboxIndex + 1) % carouselImages.length;
+          showLightboxImage();
+        }
+        lightboxPrev.addEventListener("click", showPrevLightbox);
+        lightboxNext.addEventListener("click", showNextLightbox);
+
+        // Close lightbox on close button or overlay click
+        function closeLightbox() {
+          lightboxModal.classList.remove("active");
+          lightboxImg.src = "";
+        }
+        lightboxClose.addEventListener("click", closeLightbox);
+        lightboxOverlay.addEventListener("click", closeLightbox);
+
+        // Optional: close on ESC key and navigate with arrows
+        document.addEventListener("keydown", function (e) {
+          if (!lightboxModal.classList.contains("active")) return;
+          if (e.key === "Escape") closeLightbox();
+          if (e.key === "ArrowLeft") showPrevLightbox();
+          if (e.key === "ArrowRight") showNextLightbox();
+        });
       });
     </script>
   </body>
