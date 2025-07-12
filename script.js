@@ -17,11 +17,14 @@ window.addEventListener("scroll", function () {
   const scrollToExp2 = 1400;
   const scrollToProjects = 2300;
   const scrollToProjects2 = 2400;
+  const scrollToContact = 4500;
+  const scrollToContact2 = 4600;
 
   const aboutBg = document.querySelector(".about-bg");
   const waveBg = document.querySelector(".wave");
   const skillsExpBg = document.querySelector(".skills-exp-bg");
   const projectsBg = document.querySelector(".projects-bg");
+  const contactBg = document.querySelector(".contact-bg");
 
   const colorBoxShadow = document.querySelector("header");
   const colorLogo = document.querySelector(".header-nav");
@@ -30,6 +33,7 @@ window.addEventListener("scroll", function () {
   const aboutContent = document.querySelector(".about-content");
   const skillsExpContent = document.querySelector(".skills-exp-content");
   const projectsContent = document.querySelector(".projects-content");
+  const contactContent = document.querySelector(".contact-content");
   
   if (window.scrollY > scrollToAbout) {
     waveBg.style.opacity = 0;
@@ -86,6 +90,12 @@ window.addEventListener("scroll", function () {
     projectsContent.classList.add("visible");
   } else {
     projectsContent.classList.remove("visible");
+  }
+
+  if (window.scrollY > scrollToContact) {
+    contactBg.classList.add("visible");
+  } else {
+    contactBg.classList.remove("visible");
   }
 });
 
@@ -156,19 +166,40 @@ document.addEventListener('DOMContentLoaded', () => {
           break;
         case '#projects-section':
           window.scrollTo({
-            top: 2980,
+            top: 3000,
             behavior: 'smooth'
           });
           break;
         case '#contact-section':
           window.scrollTo({
-            top: 5000,
+            top: 5100,
             behavior: 'smooth'
           });
           break;
       }
     });
   });
+});
+
+// Fix anchor scroll offset for cross-page navigation (e.g., from project pages)
+window.addEventListener('DOMContentLoaded', function () {
+  if (window.location.hash) {
+    // Timeout ensures styles are applied and layout is stable
+    setTimeout(function () {
+      var id = window.location.hash.substring(1);
+      var el = document.getElementById(id);
+      if (el) {
+        // Adjust this value to match your header height
+        var offset = 111;
+        var rect = el.getBoundingClientRect();
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        window.scrollTo({
+          top: rect.top + scrollTop - offset,
+          behavior: 'auto'
+        });
+      }
+    }, 1);
+  }
 });
 
 
