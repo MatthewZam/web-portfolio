@@ -32,7 +32,7 @@
 
       .project-container {
         display: flex;
-        min-height: 100vh;
+        min-height: 98vh;
         background: #040404;
         padding: 2rem;
       }
@@ -346,8 +346,12 @@
         outline: none;
         transform: translateY(-50%);
       }
-      .lightbox-nav.lightbox-prev { left: 2rem; }
-      .lightbox-nav.lightbox-next { right: 2rem; }
+      .lightbox-nav.lightbox-prev {
+        left: 2rem;
+      }
+      .lightbox-nav.lightbox-next {
+        right: 2rem;
+      }
       .lightbox-nav:hover {
         background: #272727;
         transform: translateY(-50%) scale(1.08);
@@ -373,7 +377,7 @@
           <li><a href="../index.html#about-section">About</a></li>
           <li><a href="../index.html#skills-exp-section">Experience</a></li>
           <li><a href="../index.html#projects-section">Projects</a></li>
-          <li><a href="../index.html#contact">Contact</a></li>
+          <li><a href="../index.html#contact-section">Contact</a></li>
         </ul>
       </nav>
     </header>
@@ -452,7 +456,11 @@
             </div>
           </div>
 
-          <a href="../index.html#projects-section" class="visit-project">
+          <a
+            href="https://www.figma.com/design/gXamD00kfZUvoXAMbxdbtq/GrowForest?t=KWlUICSbN712mhK2-1 "
+            target="_blank"
+            class="visit-project"
+          >
             <span>Visit Project</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -480,11 +488,24 @@
     <div id="lightbox-modal">
       <div class="lightbox-overlay"></div>
       <button class="lightbox-nav lightbox-prev" aria-label="Previous">
-        <img src="../assets/arrow.png" alt="Previous" style="width:18px;height:18px;transform:rotate(180deg);pointer-events:none;" />
+        <img
+          src="../assets/arrow.png"
+          alt="Previous"
+          style="
+            width: 18px;
+            height: 18px;
+            transform: rotate(180deg);
+            pointer-events: none;
+          "
+        />
       </button>
       <img id="lightbox-img" src="" alt="Large view" />
       <button class="lightbox-nav lightbox-next" aria-label="Next">
-        <img src="../assets/arrow.png" alt="Next" style="width:18px;height:18px;pointer-events:none;" />
+        <img
+          src="../assets/arrow.png"
+          alt="Next"
+          style="width: 18px; height: 18px; pointer-events: none"
+        />
       </button>
       <button class="lightbox-close" aria-label="Close">&times;</button>
     </div>
@@ -530,7 +551,9 @@
         const lightboxOverlay = document.querySelector(".lightbox-overlay");
         const lightboxPrev = document.querySelector(".lightbox-prev");
         const lightboxNext = document.querySelector(".lightbox-next");
-        const carouselImages = Array.from(document.querySelectorAll(".carousel-slide img"));
+        const carouselImages = Array.from(
+          document.querySelectorAll(".carousel-slide img")
+        );
         let lightboxIndex = 0;
         carouselImages.forEach((img, idx) => {
           img.addEventListener("click", function () {
@@ -543,7 +566,8 @@
           lightboxImg.src = carouselImages[lightboxIndex].src;
         }
         function showPrevLightbox() {
-          lightboxIndex = (lightboxIndex - 1 + carouselImages.length) % carouselImages.length;
+          lightboxIndex =
+            (lightboxIndex - 1 + carouselImages.length) % carouselImages.length;
           showLightboxImage();
         }
         function showNextLightbox() {
